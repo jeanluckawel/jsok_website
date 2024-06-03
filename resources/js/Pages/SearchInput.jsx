@@ -1,0 +1,13 @@
+export default function SearchInput() {
+    return(
+        <>
+            <div className="w-full inline-flex items-center border rounded-full p-1">
+                <input className="w-full rounded-l-full p-4 outline-none font-semibold"
+                    type="text"/>
+                <div className="flex items-center p-4 rounded-full bg-red-500 text-white">
+                    <span className="material-symbols-outlined">search</span>
+                </div>
+            </div>
+        </>
+    )
+}
