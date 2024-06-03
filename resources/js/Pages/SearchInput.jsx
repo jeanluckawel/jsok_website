@@ -1,6 +1,6 @@
 export default function SearchInput() {
     return(
-        <>
+        <form>
             <div className="w-full inline-flex items-center border rounded-full p-1">
                 <input className="w-full rounded-l-full p-4 outline-none font-semibold"
                     type="text"/>
@@ -8,6 +8,6 @@ export default function SearchInput() {
                     <span className="material-symbols-outlined">search</span>
                 </div>
             </div>
-        </>
+        </form>
     )
 }

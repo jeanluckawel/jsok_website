@@ -1,11 +1,12 @@
-import {Link, router} from "@inertiajs/react";
+import {Link} from "@inertiajs/react";
+import {Button} from "antd";
 
-export default function MainNav() {
+export default function MainNav({onClickOnCart}) {
     return (
-        <nav className="container mx-12 flex justify-between items-center py-4 font-semibold">
+        <nav className="container mx-auto flex justify-between items-center py-4">
             <div className="flex items-center">
                 <Link href="#">
-                    <span className="rounded-3xl">Home</span>
+                    <span className="rounded-3xl font-semibold">Home</span>
                 </Link>
             </div>
             <div className="flex gap-4 items-center">
@@ -23,11 +24,11 @@ export default function MainNav() {
                 <Link href="#">
                     <span className="rounded-3xl">Login</span>
                 </Link>
-                <Link href="#">
-                    <div className="flex items-center">
+                <div className="flex items-center">
+                    <button onClick={onClickOnCart} className="flex items-center">
                         <span className="material-symbols-outlined">shopping_cart</span>
-                    </div>
-                </Link>
+                    </button>
+                </div>
             </div>
         </nav>
     )

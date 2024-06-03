@@ -1,8 +1,10 @@
+import {Image} from "antd";
+
 export default function ProductCard(Product) {
     return(
-        <div className="w-full flex flex-col text-gray-700 grow shrink">
+        <div className="w-full flex flex-col text-gray-700">
             <div>
-                <img className="rounded-2xl"
+                <Image className="rounded-2xl shrink grow"
                     src="https://placehold.co/400" alt="Product Image"/>
             </div>
             <div className="mt-4 font-semibold">
