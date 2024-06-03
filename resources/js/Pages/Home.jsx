@@ -11,15 +11,15 @@ export default function Home({products}) {
                 </div>
             </section>
             <section className="mt-12">
-                <div className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
+                <div className="mx-auto grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
+                    <ProductCard id={ Math.floor(Math.random() * 200) }/>
                 </div>
             </section>
             <footer className="mb-12"></footer>

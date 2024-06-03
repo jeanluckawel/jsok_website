@@ -1,5 +1,4 @@
 import {Link} from "@inertiajs/react";
-import {Button} from "antd";
 
 export default function MainNav({onClickOnCart}) {
     return (
@@ -25,7 +24,7 @@ export default function MainNav({onClickOnCart}) {
                     <span className="rounded-3xl">Login</span>
                 </Link>
                 <div className="flex items-center">
-                    <button onClick={onClickOnCart} className="flex items-center">
+                    <button onClick={onClickOnCart} className="flex items-center font-normal">
                         <span className="material-symbols-outlined">shopping_cart</span>
                     </button>
                 </div>
