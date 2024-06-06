@@ -41,6 +41,7 @@ export default function Layout({children}){
             {children}
         </main>
         <section>
+            {/*CART DRAWER*/}
             <Drawer
                 open={open}
                 onClose={onClose}
