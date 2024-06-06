@@ -28,6 +28,11 @@ export default function Layout({children}){
 
     return <>
         <Head>
+            <meta name="theme-color" content="#db5945"/>
+            <meta property="og:title" content="Js Ok Website"/>
+            <meta property="og:type" content="image/png"/>
+            <meta property="og:url" content="http://localhost:8000/"/>
+            <meta property="og:image" content="http://localhost:8000/images/preview.png"/>
             <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
             <link rel="stylesheet"
                   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0"/>
@@ -37,7 +42,7 @@ export default function Layout({children}){
         </Head>
         <MainNav onClickOnCart={showDrawer}/>
         <hr/>
-        <main className="container mx-auto">
+        <main className="container mx-auto text-[0.9rem]">
             {children}
         </main>
         <section>

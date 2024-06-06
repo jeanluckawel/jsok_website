@@ -13,7 +13,7 @@ export default function MainNav({onClickOnCart}) {
     };
 
     return (
-        <nav className="mx-4">
+        <nav className="mx-4 text-[0.9rem]">
             <div className="container mx-auto flex justify-between items-center py-4">
                 <div className="flex items-center md:hidden">
                     <button onClick={showDrawer} className="flex items-center">
