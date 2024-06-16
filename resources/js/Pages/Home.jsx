@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard.jsx";
 import SearchInput from "./SearchInput.jsx"
 
 export default function Home({products}) {
+
     return (
         <Layout>
             <section className="mt-12 w-full flex flex-col items-center">
@@ -14,14 +15,12 @@ export default function Home({products}) {
                 <div className="mx-4 flex">
                     <div
                         className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
-                        <ProductCard id={Math.floor(Math.random() * 200)}/>
+                        {
+                            products.map(product => (
+                                <ProductCard product={product}/>
+                            ))
+                        }
+
                     </div>
                 </div>
             </section>
