@@ -5,7 +5,7 @@ export default function ProductCard({ product }) {
         <div key={product.id} className="w-fit min-w-[300px] flex flex-col space-y-2 text-gray-700 border rounded-t-2xl rounded-b-md p-2 shadow">
             <div>
                 <Image className="rounded-t-2xl rounded-b-md"
-                       src={product.photoUrl} alt={product.designation}/>
+                       src={product.photoUrl} alt={product.designation} loading="lazy"/>
             </div>
             <div className="font-semibold text-[0.9rem]">
                 <legend>
