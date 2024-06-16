@@ -14,7 +14,7 @@ export default function Home({products}) {
             <section className="mt-12">
                 <div className="mx-4 flex">
                     <div
-                        className="w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-center">
+                        className="w-full mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
                         {
                             products.map(product => (
                                 <ProductCard product={product}/>
