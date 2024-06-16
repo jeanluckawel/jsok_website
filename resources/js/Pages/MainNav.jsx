@@ -27,9 +27,6 @@ export default function MainNav({onClickOnCart}) {
                 </div>
                 <div className="hidden md:flex gap-4 items-center">
                     <Link href="#">
-                        <span className="rounded-3xl">Search</span>
-                    </Link>
-                    <Link href="#">
                         <span className="rounded-3xl">About</span>
                     </Link>
                     <Link href="#">

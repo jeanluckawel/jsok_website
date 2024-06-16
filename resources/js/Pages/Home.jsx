@@ -1,30 +1,55 @@
 import Layout from "./Layout.jsx";
-import ProductCard from "./ProductCard.jsx";
 import SearchInput from "./SearchInput.jsx"
+import {StrictMode, useState} from "react";
+import {ProductsGrid} from "./ProductsGrid.jsx";
 
 export default function Home({products}) {
+    const [productsCopy, setProductsCopy] = useState(Array.from(products))
+    const [search, setSearch] = useState("")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        // NOT BLANK
+        if (/^\s$/.test(search))
+            return
+
+        // NOT EMPTY
+        if (!search) {
+            setProductsCopy(Array.from(products))
+            return
+        }
+
+        setProductsCopy(
+            products.filter((product) => {
+                return product.designation.toLowerCase().includes(search.toLowerCase())
+            })
+        )
+    }
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value)
+    }
 
     return (
-        <Layout>
-            <section className="mt-12 w-full flex flex-col items-center">
-                <div className="mx-4 w-full">
-                    <SearchInput/>
-                </div>
-            </section>
-            <section className="mt-12">
-                <div className="mx-4 flex">
-                    <div
-                        className="w-full mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
-                        {
-                            products.map(product => (
-                                <ProductCard product={product}/>
-                            ))
-                        }
-
+        <StrictMode>
+            <Layout>
+                <section className="mt-12 w-full flex flex-col items-center">
+                    <div className="mx-4 w-full">
+                        <SearchInput
+                            onSubmit={handleSubmit}
+                            search={search}
+                            handleSearch={handleSearch}
+                        />
                     </div>
-                </div>
-            </section>
-            <footer className="mb-12"></footer>
-        </Layout>
+                </section>
+                <section className="mt-12">
+                    <div className="mx-4 flex">
+                        <ProductsGrid products={productsCopy}/>
+                    </div>
+                </section>
+                <footer className="mb-12"></footer>
+            </Layout>
+        </StrictMode>
     )
 }
