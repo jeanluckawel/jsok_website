@@ -1,11 +1,26 @@
 import {Image} from "antd";
+import {useEffect, useState} from "react";
 
 export default function ProductCard({ product }) {
+    const [isLoading, setIsLoading] = useState(true)
+
+    useEffect(() => {
+        setIsLoading(false)
+    }, [isLoading]);
+
     return(
         <div key={product.id} className="w-fit min-w-[300px] flex flex-col space-y-2 text-gray-700 border rounded-t-2xl rounded-b-md p-2 shadow">
-            <div>
-                <Image className="rounded-t-2xl rounded-b-md"
-                       src={product.photoUrl} alt={product.designation} loading="lazy"/>
+            <div className="h-72">
+                {isLoading ? (
+                    <div className="h-64 rounded-t-xl bg-gradient-to-r from-gray-50 to-gray-100 animate-pulse"></div>
+                ): (
+                    <Image
+                        className="rounded-t-2xl rounded-b-md"
+                        onLoad={() => setIsLoading(false)}
+                        src={product.photoUrl} alt={product.designation}
+                        loading="lazy"
+                    />
+                    )}
             </div>
             <div className="font-semibold text-[0.9rem]">
                 <legend>

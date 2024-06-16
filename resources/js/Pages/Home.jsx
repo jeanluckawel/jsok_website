@@ -44,8 +44,16 @@ export default function Home({products}) {
                     </div>
                 </section>
                 <section className="mt-12">
-                    <div className="mx-4 flex">
-                        <ProductsGrid products={productsCopy}/>
+                    <div className="mx-4 flex justify-center">
+                        {
+                            productsCopy.length === 0 ? (
+                                <div className="mt-16">
+                                    <span className="text-3xl text-gray-700">No matching for term "<span className="text-red-500 font-semibold">{search}</span>" were found</span>
+                                </div>
+                            ) : (
+                                <ProductsGrid products={productsCopy}/>
+                            )
+                        }
                     </div>
                 </section>
                 <footer className="mb-12"></footer>
