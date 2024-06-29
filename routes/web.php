@@ -1,8 +1,12 @@
 <?php
 
+use App\Http\Middleware\HandleInertiaRequests;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
     $products = [
     [
         "id" => 1,
@@ -359,3 +363,11 @@ Route::get('/', function () {
         'products' => $products
     ]);
 });
+
+Route::post('/carts', function (Request $request) {
+    logger("inertia", $request->all());
+    return response($request->all(), 201, [
+        'Content-Type' => 'application/json',
+        'X-Inertia' => true
+    ]);
+})->middleware(HandleInertiaRequests::class);

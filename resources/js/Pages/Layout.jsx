@@ -5,7 +5,7 @@ import {Drawer, Modal} from "antd";
 import {useState} from "react";
 import CartItem from "./CartItem.jsx";
 
-export default function Layout({children}){
+export default function Layout({children, cart}){
 
     const [open, setOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,7 +40,7 @@ export default function Layout({children}){
                 href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
                 rel="stylesheet"/>
         </Head>
-        <MainNav onClickOnCart={showDrawer}/>
+        <MainNav onClickOnCart={showDrawer} cartItemsCount={cart.length}/>
         <hr/>
         <main className="container mx-auto text-[0.9rem]">
             {children}
@@ -53,8 +53,11 @@ export default function Layout({children}){
                 title="Cart items"
             >
                 <section className="flex flex-col space-y-2">
-                    <CartItem/>
-                    <CartItem/>
+                    {cart.size !== 0 ?
+                        cart.map(product => (
+                            <CartItem product={product}/>
+                        )): (<></>)
+                    }
                 </section>
 
 
