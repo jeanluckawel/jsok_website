@@ -1,9 +1,9 @@
 import {Head} from "@inertiajs/react";
-import MainNav from "./MainNav.jsx";
+import MainNav from "../componnents/MainNav.jsx";
 import "../../css/app.css"
 import {Drawer, Modal} from "antd";
 import {useState} from "react";
-import CartItem from "./CartItem.jsx";
+import CartItem from "../componnents/CartItem.jsx";
 
 export default function Layout({children, cart}){
 
@@ -40,8 +40,9 @@ export default function Layout({children, cart}){
                 href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
                 rel="stylesheet"/>
         </Head>
-        <MainNav onClickOnCart={showDrawer} cartItemsCount={cart.length}/>
-        <hr/>
+        <div className="sticky w-full top-0 z-50 border-b bg-red-50 bg-opacity-30 backdrop-blur-sm">
+            <MainNav onClickOnCart={showDrawer} cartItemsCount={cart.length}/>
+        </div>
         <main className="container mx-auto text-[0.9rem]">
             {children}
         </main>
@@ -52,7 +53,7 @@ export default function Layout({children, cart}){
                 onClose={onClose}
                 title="Cart items"
             >
-                <section className="flex flex-col space-y-2">
+                <section className="flex flex-col space-y-2 mb-10">
                     {cart.size !== 0 ?
                         cart.map(product => (
                             <CartItem product={product}/>
@@ -64,7 +65,7 @@ export default function Layout({children, cart}){
                 <section className="absolute bottom-4 w-full">
                     <div className="w-full">
                         <button onClick={showModal}
-                                className="flex justify-center items-center space-x-2 min-w-[21rem] p-2 bg-blue-500 rounded font-bold text-white">
+                                className="flex justify-center items-center space-x-2 min-w-[19.8rem] p-2 bg-blue-500 rounded font-bold text-white">
                             <span className="material-symbols-outlined">shopping_cart</span> <span>Checkout</span>
                         </button>
                     </div>

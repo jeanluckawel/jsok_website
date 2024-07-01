@@ -8,9 +8,9 @@ export default function SearchInput({ search, handleSearch, onSubmit }) {
                     name="searchInput"
                     onChange={handleSearch}
                 />
-                <div className="flex items-center p-3 rounded-full bg-red-500 text-white">
+                <button onClick={onSubmit} className="flex items-center p-3 bg-blue-500 rounded-full text-white">
                     <span className="material-symbols-outlined">search</span>
-                </div>
+                </button>
             </div>
         </form>
     )

@@ -1,7 +1,7 @@
 import Layout from "./Layout.jsx";
-import SearchInput from "./SearchInput.jsx"
+import SearchInput from "../componnents/SearchInput.jsx"
 import {StrictMode, useEffect, useState} from "react";
-import {ProductsGrid} from "./ProductsGrid.jsx";
+import {ProductsGrid} from "../componnents/ProductsGrid.jsx";
 import {router, usePage} from "@inertiajs/react";
 
 export default function Home({products}) {
@@ -24,7 +24,20 @@ export default function Home({products}) {
 
     const props = usePage().props
     const addToCart = async (product) => {
-        cart.push(product)
+        let productFounded = false;
+
+        cart.forEach((prod, index) => {
+            if (cart[index].id === product.id) {
+                productFounded = true
+                cart[index].qty += product.qty
+
+            }
+        })
+
+        if (!productFounded) {
+            cart.push(product)
+        }
+
         localStorage.setItem("cart", JSON.stringify(cart))
         setCart(JSON.parse(localStorage.getItem('cart')))
 
